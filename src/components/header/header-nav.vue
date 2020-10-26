@@ -3,16 +3,16 @@
   <nav class="ml-auto">
     <ul class="navbar-nav">
       <router-link
-        to="/skarb"
+        to="/register"
         class="nav-link "
       >
-        Skarb
+        Register
       </router-link>
       <router-link
-        to="/about"
+        to="/login"
         class="nav-link "
       >
-        About
+        Login
       </router-link>
     </ul>
   </nav>
