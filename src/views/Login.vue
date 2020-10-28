@@ -25,6 +25,15 @@
       />
     </div>
 
+
+<div v-if="showerrormesage" class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Wrong username or password. Try again.</strong>
+  <button type="button" class="close" @click="this.showerrormesage=false">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
     <button type="submit" class="btn btn-primary">
       Login
     </button>
@@ -41,7 +50,8 @@ export default {
       currentUser: {
         username: "",
         password: ""
-      }
+      },
+      showerrormesage:false     
     };
   },
   methods: {
@@ -64,7 +74,7 @@ export default {
         console.log(response);
         this.$router.push({ name: "WelcomePage" });
       } catch (error) {
-        console.error(error);
+        this.showerrormesage=true;
         return null;
       }
     }
