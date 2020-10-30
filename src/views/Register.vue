@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import * as axios from "axios";
+import { data } from "@/shared";
 
 export default {
   data() {
@@ -44,21 +44,12 @@ export default {
     };
   },
   methods: {
-    createUser() {
-      try {
-        axios.post(
-          `https://localhost:44338/api/Account/register`,
-          this.currentUser,
-          { headers: { "Content-Type": "application/json" } }
-        );
+    async createUser() {
+        await data.register(this.currentUser);
         this.$router.push({ name: "Login" });
-      } catch (error) {
-        console.error(error);
-        return null;
       }
     }
   }
-};
 </script>
 
 <style lang="scss" scoped>

@@ -1,0 +1,27 @@
+import * as axios from 'axios';
+
+const server = "https://localhost:44338/api/Account/";
+
+
+const login = async function(currentUser){
+  try{
+    const response = await axios.post(`${server}login/`, currentUser, {headers: {"Content-Type": "application/json"}});
+    const userToReturn = response.data;
+    return userToReturn;
+  } catch (error) {
+    console.error(error);
+    return null;
+}};
+
+const register = async function(currentUser){
+    try{
+      await axios.post(`${server}register/`, currentUser, {headers: {"Content-Type": "application/json"}});
+    } catch (error) {
+      console.error(error);
+      return null;
+  }};
+
+export const data = {
+  login,
+  register
+}
