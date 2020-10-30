@@ -42,7 +42,7 @@
 
 <script>
 import * as axios from "axios";
-import { mapMutations } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   data() {
@@ -55,28 +55,17 @@ export default {
     };
   },
   methods: {
-    ...mapMutations([
-      "setCurrentUser",
-      "setCurrentAccessToken",
-      "setCurrentRefreshToken"
+    ...mapActions([
+      "loginAction",
     ]),
     async Login(event) {
       event.preventDefault()
-      try {
-        const response =await axios.post(
-          `https://localhost:44338/api/Account/login`,
-          this.currentUser,
-          { headers: { "Content-Type": "application/json" } }
-        );
-        this.setCurrentUser(response.data.username);
-        this.setCurrentAccessToken(response.data.accessToken);
-        this.setCurrentRefreshToken(response.data.refreshToken);
-        console.log(response);
-        this.$router.push({ name: "WelcomePage" });
-      } catch (error) {
-        this.showerrormesage=true;
-        return null;
-      }
+
+        const response = await this.loginAction(this.currentUser);
+        if (response=="error") {
+          this.showerrormesage=true;
+        }
+        else this.$router.push({ name: "WelcomePage" });
     }
   }
 };

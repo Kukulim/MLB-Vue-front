@@ -21,7 +21,23 @@ const register = async function(currentUser){
       return null;
   }};
 
+  const refreshToken = async function(currentRefreshToken,currentAccesToken){
+    try{
+        console.log("refreshToken from data"+ currentRefreshToken);
+        const refreashTokenJason = {
+            "refreshToken": currentRefreshToken,
+        }
+        const response = await axios.post(`${server}refresh-token/`, refreashTokenJason, {headers: {"Content-Type": "application/json", "Authorization": `Bearer ${currentAccesToken}`}});
+        const userToReturn = response.data;
+        return userToReturn;
+    } catch (error) {
+      console.error(error);
+      return null;
+  }};
+
+
 export const data = {
   login,
-  register
+  register,
+  refreshToken
 }

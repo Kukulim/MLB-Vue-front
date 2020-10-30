@@ -9,11 +9,11 @@
         Login
       </router-link>
     </ul>
-        <ul v-if="isLoggedIn" class="navbar-nav">
+    <ul v-if="isLoggedIn" class="navbar-nav">
       <router-link to="/books" class="nav-link ">
         Books
       </router-link>
-       <router-link to="/" class="nav-link" @click="logout()">
+      <router-link to="/" class="nav-link" @click="logout()">
         Logout
       </router-link>
     </ul>
@@ -22,16 +22,10 @@
 <script>
 import { mapGetters, mapMutations } from "vuex";
 export default {
-  methods:{
-      ...mapMutations([
-      "setCurrentUser",
-      "setCurrentAccessToken",
-      "setCurrentRefreshToken"
-    ]),
-    logout(){
-        this.setCurrentUser(null);
-        this.setCurrentAccessToken(null);
-        this.setCurrentRefreshToken(null);
+  methods: {
+    ...mapMutations(["removeTokens"]),
+    logout() {
+      this.removeTokens();
     }
   },
   computed: {
