@@ -55,7 +55,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions([
+    ...mapActions("auth",[
       "loginAction",
     ]),
     async Login(event) {

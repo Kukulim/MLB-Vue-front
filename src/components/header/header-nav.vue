@@ -23,13 +23,13 @@
 import { mapGetters, mapMutations } from "vuex";
 export default {
   methods: {
-    ...mapMutations(["removeTokens"]),
+    ...mapMutations("auth",["removeTokens"]),
     logout() {
       this.removeTokens();
     }
   },
   computed: {
-    ...mapGetters(["isLoggedIn"])
+    ...mapGetters("auth",["isLoggedIn"])
   }
 };
 </script>
