@@ -17,15 +17,12 @@ export const authorizeAction = async ({ commit, dispatch }, currentUser) => {
 };
 
 export const refreshAction = async ({ dispatch, state }) => {
-  console.log("refres action");
-  console.log(state.refreshToken);
   const logedUser = await data.refreshToken(state.refreshToken, state.accessToken);
   console.log(logedUser.refreshToken);
   dispatch("authorizeAction", logedUser);
 
 };
 export const refreshToken = async ({ commit, dispatch, state }) => {
-  console.log("refreshtoken");
   commit("setRemainingTokenTime", 1000 * 60 * 19);
   setTimeout(() => {
     dispatch("refreshAction");

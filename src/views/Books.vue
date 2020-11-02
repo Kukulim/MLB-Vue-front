@@ -1,7 +1,7 @@
 <template>
   <div class="mt-5">
     <div v-if="loading" class="spinner-border text-primary" role="status">
-      <span class="sr-only">Loading...</span>
+      <span class="sr-only">Loading... Please wait.</span>
     </div>
     <div
       v-if="showerrormesage"
@@ -37,39 +37,31 @@
 
 <script>
 import * as axios from "axios";
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   data() {
     return {
       loading: true,
-      showerrormesage: false
+      showerrormesage: false,
     };
   },
   computed: {
-    ...mapState(
-      "auth",
-      {
-        accessToken: "accessToken"
-      },
-      "books",
-      { books: "books" }
-    )
+    ...mapState("books",{ books: "books" }),
+    ...mapState("auth",{ accessToken: "accessToken"})
   },
   async created() {
     {
-      try {
-        const response = await axios.get(`https://localhost:44338/api/books/`, {
-          headers: { Authorization: `Bearer ${this.accessToken}` }
-        });
-        this.books = response.data;
-        this.loading = false;
-        console.log(response);
-      } catch (error) {
-        this.showerrormesage = true;
-      }
-    }
+    await this.loadBooks();
+    this.loading = false;
   }
+  },
+    methods: {
+    ...mapActions("books", ['getBooksAction']),
+    async loadBooks() {
+    await this.getBooksAction(this.accessToken);
+    }
+  },
 };
 </script>
 
