@@ -23,7 +23,6 @@ const register = async function(currentUser){
 
   const refreshToken = async function(currentRefreshToken,currentAccesToken){
     try{
-        console.log("refreshToken from data"+ currentRefreshToken);
         const refreashTokenJason = {
             "refreshToken": currentRefreshToken,
         }

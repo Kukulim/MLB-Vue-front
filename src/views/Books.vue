@@ -15,23 +15,23 @@
     </div>
 
     <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Price</th>
-      <th scope="col">Category</th>
-      <th scope="col">Author</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr v-for="book in books" :key="book.id">
-      <th>{{book.name}}</th>
-      <td>{{book.price}}</td>
-      <td>{{book.category}}</td>
-      <td>{{book.author}}</td>
-    </tr>
-  </tbody>
-</table>
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Category</th>
+          <th scope="col">Author</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="book in books" :key="book.id">
+          <th>{{ book.name }}</th>
+          <td>{{ book.price }}</td>
+          <td>{{ book.category }}</td>
+          <td>{{ book.author }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -42,15 +42,19 @@ import { mapState } from "vuex";
 export default {
   data() {
     return {
-      books: [],
       loading: true,
       showerrormesage: false
     };
   },
   computed: {
-    ...mapState("auth",{
-      accessToken: "accessToken"
-    })
+    ...mapState(
+      "auth",
+      {
+        accessToken: "accessToken"
+      },
+      "books",
+      { books: "books" }
+    )
   },
   async created() {
     {
