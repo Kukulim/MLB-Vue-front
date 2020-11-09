@@ -1,6 +1,6 @@
 <template>
   <div>
-    welcome page
+    <img src="@/assets/bookshelf.jpg" class="img-fluid" alt="Responsive image">
   </div>
 </template>
 

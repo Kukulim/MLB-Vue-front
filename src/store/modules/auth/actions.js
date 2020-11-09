@@ -10,7 +10,7 @@ export const loginAction = async ({ dispatch }, currentUser) => {
   }
 };
 export const authorizeAction = async ({ commit, dispatch }, currentUser) => {
-  await commit("setCurrentUser", currentUser.username);
+  await commit("setCurrentUser", currentUser);
   await commit("setCurrentAccessToken", currentUser.accessToken);
   await commit("setCurrentRefreshToken", currentUser.refreshToken);
   return dispatch("refreshToken");

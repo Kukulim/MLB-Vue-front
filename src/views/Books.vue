@@ -43,25 +43,27 @@ export default {
   data() {
     return {
       loading: true,
-      showerrormesage: false,
+      showerrormesage: false
     };
   },
   computed: {
-    ...mapState("books",{ books: "books" }),
-    ...mapState("auth",{ accessToken: "accessToken"})
+    ...mapState("books", { books: "books" }),
+    ...mapState("auth", { accessToken: "accessToken" }),
+    ...mapState("auth", { user: "user" })
   },
   async created() {
     {
-    await this.loadBooks();
-    this.loading = false;
-  }
-  },
-    methods: {
-    ...mapActions("books", ['getBooksAction']),
-    async loadBooks() {
-    await this.getBooksAction(this.accessToken);
+      if (!this.user.isEmailConfirmed) this.$router.push({ name: "ConfirmEmail" });
+      await this.loadBooks();
+      this.loading = false;
     }
   },
+  methods: {
+    ...mapActions("books", ["getBooksAction"]),
+    async loadBooks() {
+      await this.getBooksAction(this.accessToken);
+    }
+  }
 };
 </script>
 

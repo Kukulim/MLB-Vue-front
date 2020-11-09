@@ -11,10 +11,21 @@
         placeholder="name..."
         v-model="currentUser.username"
       />
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email:</label>
+      <input
+        type="email"
+        class="form-control"
+        placeholder="email@email..."
+        v-model="currentUser.email"
+      />
       <small id="emailHelp" class="form-text text-muted"
         >We'll never share your email with anyone else.</small
       >
     </div>
+
     <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
       <input
@@ -39,7 +50,9 @@ export default {
     return {
       currentUser: {
         username: "",
-        password: ""
+        password: "",
+        email: "",
+        isEmailConfirmed:false
       }
     };
   },
