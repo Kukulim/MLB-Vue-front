@@ -10,8 +10,8 @@
 </template>
 <style lang="scss" scoped>
  .logo{
-   color: cadetblue;
-   font-size: 1.3em;
+   color: rgb(214, 135, 44);
+   font-size: 1.1em;
    margin: 5px;
  }
 </style>
