@@ -1,6 +1,6 @@
 <template>
   <div class="welcomeImage">
-    <img src="@/assets/bookshelf.jpg" class="img-fluid imgBookshelf" alt="Responsive image">
+    <img src="@/assets/bookshelf.jpg" class="img-fluid imgBookshelf" alt="Responsive image">  
   </div>
 </template>
 

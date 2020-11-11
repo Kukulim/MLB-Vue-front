@@ -39,3 +39,8 @@ export default {
   components: { HeaderBarBrand, HeaderNav }
 };
 </script>
+<style lang="scss" scoped>
+.navbar{
+  max-height: 70px;
+}
+</style>
