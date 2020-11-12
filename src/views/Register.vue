@@ -2,6 +2,8 @@
   <h1 class="mt-4 mb-4">
     Register page:
   </h1>
+  <div class="row">
+  <div class="col">
   <form>
     <div class="form-group input-wrapper">
       <label for="exampleInputEmail1">User Name</label>
@@ -43,6 +45,11 @@
       Register
     </button>
   </form>
+</div>
+    <div class="col">
+        <img src="@/assets/register.jpg" class="fluid-img accountImg">  
+  </div>
+  </div>
 </template>
 
 <script>

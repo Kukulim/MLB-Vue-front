@@ -2,6 +2,8 @@
   <h1 class="mt-4 mb-4">
     Login page:
   </h1>
+  <div class="row container">
+<div class="col">
   <form @submit="Login($event)">
     <div class="form-group input-wrapper">
       <label for="exampleInputEmail1">User Name</label>
@@ -39,6 +41,11 @@
       Login
     </button>
   </form>
+  </div>
+  <div class="col">
+        <img src="@/assets/login.jpg" class="fluid-img accountImg">  
+  </div>
+  </div>
 </template>
 
 <script>
