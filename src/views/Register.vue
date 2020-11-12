@@ -3,8 +3,9 @@
     Register page:
   </h1>
   <form>
-    <div class="form-group">
+    <div class="form-group input-wrapper">
       <label for="exampleInputEmail1">User Name</label>
+      <i class="fa fa-user input-icon"></i>
       <input
         type="text"
         class="form-control"
@@ -13,8 +14,9 @@
       />
     </div>
 
-    <div class="form-group">
+    <div class="form-group input-wrapper">
       <label for="exampleInputEmail1">Email:</label>
+      <i class="fa fa-envelope input-icon"></i>
       <input
         type="email"
         class="form-control"
@@ -26,8 +28,9 @@
       >
     </div>
 
-    <div class="form-group">
+    <div class="form-group input-wrapper">
       <label for="exampleInputPassword1">Password</label>
+      <i class="fa fa-key input-icon"></i>
       <input
         type="password"
         class="form-control"

@@ -21,3 +21,15 @@
     width: 100%;
     color: white;
   }
+input{
+    text-indent:40px;
+}
+.input-wrapper {
+    position: relative;
+  }
+  .input-icon {
+    position: absolute;
+    left: 20px;
+    top: 50px;
+    font-size: 25px;
+  }

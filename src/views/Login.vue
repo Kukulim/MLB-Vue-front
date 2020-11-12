@@ -3,8 +3,9 @@
     Login page:
   </h1>
   <form @submit="Login($event)">
-    <div class="form-group">
+    <div class="form-group input-wrapper">
       <label for="exampleInputEmail1">User Name</label>
+      <i class="fa fa-user input-icon"></i>
       <input
         type="text"
         class="form-control"
@@ -12,8 +13,9 @@
         v-model="currentUser.username"
       />
     </div>
-    <div class="form-group">
+    <div class="form-group input-wrapper">
       <label for="exampleInputPassword1">Password</label>
+      <i class="fa fa-key input-icon"></i>
       <input
         type="password"
         class="form-control"
@@ -22,14 +24,16 @@
       />
     </div>
 
-
-<div v-if="showerrormesage" class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Wrong username or password. Try again.</strong>
-  <button type="button" class="close" @click="this.showerrormesage=false">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-
+    <div
+      v-if="showerrormesage"
+      class="alert alert-warning alert-dismissible fade show"
+      role="alert"
+    >
+      <strong>Wrong username or password. Try again.</strong>
+      <button type="button" class="close" @click="this.showerrormesage = false">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
 
     <button type="submit" class="btn btn-primary">
       Login
@@ -48,21 +52,18 @@ export default {
         username: "",
         password: ""
       },
-      showerrormesage:false     
+      showerrormesage: false
     };
   },
   methods: {
-    ...mapActions("auth",[
-      "loginAction",
-    ]),
+    ...mapActions("auth", ["loginAction"]),
     async Login(event) {
-      event.preventDefault()
+      event.preventDefault();
 
-        const response = await this.loginAction(this.currentUser);
-        if (response=="error") {
-          this.showerrormesage=true;
-        }
-        else this.$router.push({ name: "WelcomePage" });
+      const response = await this.loginAction(this.currentUser);
+      if (response == "error") {
+        this.showerrormesage = true;
+      } else this.$router.push({ name: "WelcomePage" });
     }
   }
 };
