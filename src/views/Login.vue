@@ -1,5 +1,5 @@
 <template>
-  <h1 class="m-5">
+  <h1 class="mt-4 mb-4">
     Login page:
   </h1>
   <form @submit="Login($event)">

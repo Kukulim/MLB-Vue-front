@@ -1,23 +1,22 @@
 <template>
-<footer class="footer bg-primary text-right">
+<footer class="footer navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-  <p>Footer</p>
+  <FooterNav />
   </div>
 </footer>
 </template>
 
 <script>
+import FooterNav from "@/components/footer/footer-nav.vue"
     export default {
-        name: "FooterBar"
+        name: "FooterBar",
+        components: {  FooterNav }
     }
-</script>
+</script> 
+  
 
 <style lang="scss" scoped>
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  color: white;
+.footer{
+  max-height: 20px;
 }
 </style>
