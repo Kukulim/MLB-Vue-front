@@ -1,4 +1,5 @@
 <template>
+<div>
 <h3 class="text-center">Enter:</h3>
 <div class="wrapper">
   <div class="welcomeImage hover">
@@ -8,17 +9,22 @@
         class="img-fluid imgBookshelf"
         alt="Responsive image"
       />
+      <button class="btn btn-primary btn-lg enterbutton" @click="enter()">Enter</button>
     </figure>
+  </div>
   </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script>
 
-export default defineComponent({
-  name: "WelcomePage"
-});
+export default {
+  methods: {
+     enter() {
+        this.$router.push({ name: "exploreHome" });
+      }
+    }
+  }
 </script>
 
 <style scoped lang="scss">
@@ -39,5 +45,15 @@ export default defineComponent({
   transform: scale(1.3);
   -webkit-transform: rotate(5deg) scale(1.4);
   filter: blur(3px);
+}
+.enterbutton{
+  display: none;
+  z-index: 55656;
+  position: fixed;
+  top:47%;
+  left: 47%;
+}
+img:hover + .enterbutton, .enterbutton:hover {
+  display: inline-block;
 }
 </style>
