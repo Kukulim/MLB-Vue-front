@@ -1,10 +1,9 @@
-import * as axios from 'axios';
+import * as axios from "axios";
+import { API_LOCATION } from "../../config";
 
-const server = "https://localhost:44338/api/Account/";
-
-const getBooksList = async function (accessToken) {
+const getBooksList = async function(accessToken) {
   try {
-    const response = await axios.get(`https://localhost:44338/api/books/`, {
+    const response = await axios.get(`${API_LOCATION}/books/`, {
       headers: { Authorization: `Bearer ${accessToken}` }
     });
     return response.data;
@@ -15,4 +14,4 @@ const getBooksList = async function (accessToken) {
 
 export const booksdata = {
   getBooksList
-}
+};

@@ -1,42 +1,70 @@
-import * as axios from 'axios';
+import * as axios from "axios";
+import { API_LOCATION } from "../../config"
 
-const server = "https://localhost:44338/api/Account/";
-
-
-const login = async function(currentUser){
-  try{
-    const response = await axios.post(`${server}login/`, currentUser, {headers: {"Content-Type": "application/json"}});
+const login = async function(currentUser) {
+  try {
+    const response = await axios.post(`${API_LOCATION}/account/login/`, currentUser, {
+      headers: { "Content-Type": "application/json" }
+    });
     const userToReturn = response.data;
     return userToReturn;
   } catch (error) {
     console.error(error);
     return null;
-}};
+  }
+};
 
-const register = async function(currentUser){
-    try{
-      await axios.post(`${server}register/`, currentUser, {headers: {"Content-Type": "application/json"}});
-    } catch (error) {
-      console.error(error);
-      return null;
-  }};
+const register = async function(currentUser) {
+  try {
+    await axios.post(`${API_LOCATION}/account/register/`, currentUser, {
+      headers: { "Content-Type": "application/json" }
+    });
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
 
-  const refreshToken = async function(currentRefreshToken,currentAccesToken){
-    try{
-        const refreashTokenJason = {
-            "refreshToken": currentRefreshToken,
+const refreshToken = async function(currentRefreshToken, currentAccesToken) {
+  try {
+    const refreashTokenJason = {
+      refreshToken: currentRefreshToken
+    };
+    const response = await axios.post(
+      `${API_LOCATION}/account/refresh-token/`,
+      refreashTokenJason,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${currentAccesToken}`
         }
-        const response = await axios.post(`${server}refresh-token/`, refreashTokenJason, {headers: {"Content-Type": "application/json", "Authorization": `Bearer ${currentAccesToken}`}});
-        const userToReturn = response.data;
-        return userToReturn;
-    } catch (error) {
-      console.error(error);
-      return null;
-  }};
+      }
+    );
+    const userToReturn = response.data;
+    return userToReturn;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
 
+const sendConfirmEmail = async function(currentUser, currentAccesToken) {
+  try {
+    await axios.post(`${API_LOCATION}/account/sendConfirmEmail/`, currentUser, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${currentAccesToken}`
+      }
+    });
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
 
 export const data = {
   login,
   register,
-  refreshToken
-}
+  refreshToken,
+  sendConfirmEmail
+};

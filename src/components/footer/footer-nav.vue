@@ -1,4 +1,3 @@
-
 <template>
   <nav class="ml-auto">
     <ul class="navbar-nav">
@@ -9,12 +8,10 @@
   </nav>
 </template>
 <script>
-
-export default {
-};
+export default {};
 </script>
 <style scoped>
-.nav-link{
+.nav-link {
   font-size: small;
 }
 </style>

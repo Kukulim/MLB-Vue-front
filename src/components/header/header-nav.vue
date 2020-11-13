@@ -1,4 +1,3 @@
-
 <template>
   <nav class="ml-auto">
     <ul v-if="!isLoggedIn" class="navbar-nav">
@@ -23,15 +22,14 @@
 import { mapGetters, mapMutations } from "vuex";
 export default {
   methods: {
-    ...mapMutations("auth",["removeTokens"]),
+    ...mapMutations("auth", ["removeTokens"]),
     logout() {
       this.removeTokens();
     }
   },
   computed: {
-    ...mapGetters("auth",["isLoggedIn"])
+    ...mapGetters("auth", ["isLoggedIn"])
   }
 };
 </script>
-<style scoped>
-</style>
+<style scoped></style>

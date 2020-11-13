@@ -15,10 +15,7 @@
           <span class="navbar-toggler-icon" />
         </button>
 
-        <div
-          class="collapse navbar-collapse"
-          id="navbarSupportedContent"
-        >
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <HeaderNav />
@@ -40,7 +37,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.navbar{
+.navbar {
   max-height: 70px;
 }
 </style>

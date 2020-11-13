@@ -18,17 +18,37 @@
         If you do not receive a confirmation email, please click button below to
         resend confirmation link to your email address.
       </p>
-      <button class="btn btn-primary">Click me !</button>
+      <button class="btn btn-primary" @click="sendEmail()">Click me !</button>
     </div>
-  <div class="col">
-      <img src="@/assets/confirmEmail.jpg" class="fluid-img accountImg">  
-  </div>
+    <div class="col">
+      <img src="@/assets/confirmEmail.jpg" class="fluid-img accountImg" />
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+import { data } from "@/shared";
+export default {
+  data() {
+    return {
+      loading: true
+    };
+  },
+  computed: {
+    ...mapState("auth", { user: "user" }),
+    ...mapState("auth", { accessToken: "accessToken" })
+  },
+  methods: {
+    async sendEmail() {
+      const Currentuser = {
+        username: this.user.userName,
+        useremail: this.user.email
+      };
+      await data.sendConfirmEmail(Currentuser, this.accessToken);
+    }
+  }
+};
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

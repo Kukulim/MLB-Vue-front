@@ -9,16 +9,15 @@
 </template>
 
 <script>
-import HeaderBar from './components/header/header-bar.vue'
-import FooterBar from './components/footer/footer-bar.vue'
+import HeaderBar from "./components/header/header-bar.vue";
+import FooterBar from "./components/footer/footer-bar.vue";
 
 export default {
-  name: 'App',
-  components: 
-  { HeaderBar, FooterBar }
-}
+  name: "App",
+  components: { HeaderBar, FooterBar }
+};
 </script>
 
 <style lang="scss">
-@import '@/design/index.scss';
+@import "@/design/index.scss";
 </style>

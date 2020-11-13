@@ -36,7 +36,6 @@
 </template>
 
 <script>
-import * as axios from "axios";
 import { mapState, mapActions } from "vuex";
 
 export default {
@@ -53,7 +52,8 @@ export default {
   },
   async created() {
     {
-      if (!this.user.isEmailConfirmed) this.$router.push({ name: "ConfirmEmail" });
+      if (!this.user.isEmailConfirmed)
+        this.$router.push({ name: "ConfirmEmail" });
       await this.loadBooks();
       this.loading = false;
     }
@@ -67,5 +67,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

@@ -1,12 +1,11 @@
-import { data } from '@/shared';
-
+import { data } from "@/shared";
 
 export const loginAction = async ({ dispatch }, currentUser) => {
   try {
     const logedUser = await data.login(currentUser);
     await dispatch("authorizeAction", logedUser);
   } catch (error) {
-    return "error"
+    return "error";
   }
 };
 export const authorizeAction = async ({ commit, dispatch }, currentUser) => {
@@ -17,10 +16,12 @@ export const authorizeAction = async ({ commit, dispatch }, currentUser) => {
 };
 
 export const refreshAction = async ({ dispatch, state }) => {
-  const logedUser = await data.refreshToken(state.refreshToken, state.accessToken);
+  const logedUser = await data.refreshToken(
+    state.refreshToken,
+    state.accessToken
+  );
   console.log(logedUser.refreshToken);
   dispatch("authorizeAction", logedUser);
-
 };
 export const refreshToken = async ({ commit, dispatch, state }) => {
   commit("setRemainingTokenTime", 1000 * 60 * 19);
@@ -28,4 +29,3 @@ export const refreshToken = async ({ commit, dispatch, state }) => {
     dispatch("refreshAction");
   }, state.remainingTokenTime);
 };
-
