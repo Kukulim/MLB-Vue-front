@@ -14,6 +14,8 @@
       </button>
     </div>
 
+    <button class="btn btn-primary m-3">Add new book</button>
+
     <table class="table">
       <thead>
         <tr>

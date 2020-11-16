@@ -26,6 +26,14 @@ const routes = [
       import(
         /* webpackChunkName: "confirmemail" */ "../views/accountViews/ConfirmEmail.vue"
       )
+  },
+  {
+    path: "/forgottenpassword",
+    name: "ForgottenPassword",
+    component: () =>
+      import(
+        /* webpackChunkName: "confirmemail" */ "../views/accountViews/ForgottenPassword.vue"
+      )
   }
 ];
 

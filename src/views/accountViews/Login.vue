@@ -1,7 +1,5 @@
 <template>
-  <h1 class="mt-4 mb-4">
-    Login page:
-  </h1>
+  <h1 class="mt-4 mb-4">Login page:</h1>
   <div class="row container">
     <div class="col">
       <form @submit="Login($event)">
@@ -25,6 +23,9 @@
             v-model="currentUser.password"
           />
         </div>
+        <div>
+          <router-link to="/forgottenpassword"> Forgotten Password </router-link>
+        </div>
 
         <div
           v-if="showerrormesage"
@@ -41,9 +42,7 @@
           </button>
         </div>
 
-        <button type="submit" class="btn btn-primary">
-          Login
-        </button>
+        <button type="submit" class="btn btn-primary mt-3">Login</button>
       </form>
     </div>
     <div class="col">
@@ -60,9 +59,9 @@ export default {
     return {
       currentUser: {
         username: "",
-        password: ""
+        password: "",
       },
-      showerrormesage: false
+      showerrormesage: false,
     };
   },
   methods: {
@@ -74,8 +73,8 @@ export default {
       if (response == "error") {
         this.showerrormesage = true;
       } else this.$router.push({ name: "Books" });
-    }
-  }
+    },
+  },
 };
 </script>
 
