@@ -62,9 +62,23 @@ const sendConfirmEmail = async function(currentUser, currentAccesToken) {
   }
 };
 
+const sendPasswordResetEmail = async function(UserEmail) {
+  try {
+    await axios.post(`${API_LOCATION}/account/SendPasswordResetEmail/`, UserEmail, {
+      headers: {
+        "Content-Type": "application/json",
+      }
+    });
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
 export const data = {
   login,
   register,
   refreshToken,
-  sendConfirmEmail
+  sendConfirmEmail,
+  sendPasswordResetEmail
 };

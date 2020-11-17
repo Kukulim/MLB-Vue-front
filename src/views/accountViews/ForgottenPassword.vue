@@ -2,7 +2,7 @@
   <h1 class="mt-4 mb-4">Fortoggen password:</h1>
   <div class="row container">
     <div class="col">
-      <form @submit="SendPasswordEmail($event)">
+      <form @submit="SendPasswordResetEmail($event)">
         <div class="form-group input-wrapper">
           <label for="exampleInputPassword1">Email</label>
           <i class="fa fa-key input-icon"></i>
@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import { data } from "@/shared";
+
 export default {
   data() {
     return {
@@ -26,9 +28,9 @@ export default {
     };
   },
   methods: {
-    async SendPasswordEmail(event) {
+    async SendPasswordResetEmail(event) {
       event.preventDefault();
-      console.log(this.email);
+      await data.sendPasswordResetEmail(this.email);
     },
   },
 };
