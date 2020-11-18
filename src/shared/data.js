@@ -75,10 +75,25 @@ const sendPasswordResetEmail = async function(UserEmail) {
   }
 };
 
+const getAllBooks = async function() {
+  try {
+    const response = await axios.get(`${API_LOCATION}/books/`, {
+      headers: {
+        "Content-Type": "application/json",
+      }, 
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
 export const data = {
   login,
   register,
   refreshToken,
   sendConfirmEmail,
-  sendPasswordResetEmail
+  sendPasswordResetEmail,
+  getAllBooks
 };
