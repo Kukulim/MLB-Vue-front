@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link to="/" class="nav-link ">
+    <router-link to="/" class="nav-link">
       <span class="navbar-brand"
         ><span class="logo">MLB</span>My Little Bookshelf</span
       >

@@ -3,6 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container">
         <HeaderBarBrand />
+        <Cart />
         <button
           class="navbar-toggler"
           type="button"
@@ -30,10 +31,11 @@
 <script>
 import HeaderBarBrand from "@/components/header/header-bar-brand";
 import HeaderNav from "@/components/header/header-nav";
+import Cart from "@/components/cart/shoppingCart";
 
 export default {
   name: "HeaderBar",
-  components: { HeaderBarBrand, HeaderNav }
+  components: { HeaderBarBrand, HeaderNav, Cart }
 };
 </script>
 <style lang="scss" scoped>
