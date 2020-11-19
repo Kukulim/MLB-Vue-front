@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import ExploreRoutes from "@/router/exploreRoutes";
+import ShopRoutes from "@/router/shopRoutes";
 import AccountRoutes from "@/router/accountRoutes";
 import ProfileRoutes from "@/router/profileRoutes";
 import InfrastructureRoutes from "@/router/infrastructureRoutes";
 
 let allRoutes = [];
 allRoutes = allRoutes.concat(
-  ExploreRoutes,
+  ShopRoutes,
   AccountRoutes,
   ProfileRoutes,
   InfrastructureRoutes

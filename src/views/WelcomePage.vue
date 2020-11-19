@@ -22,7 +22,7 @@
 export default {
   methods: {
     enter() {
-      this.$router.push({ name: "exploreHome" });
+      this.$router.push({ name: "ShopHome" });
     }
   }
 };

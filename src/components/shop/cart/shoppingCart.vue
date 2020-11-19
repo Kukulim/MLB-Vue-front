@@ -18,5 +18,6 @@ export default {
 <style lang="scss" scoped>
 .cart{
     color: white;
+    border-radius: 5px;;
 }
 </style>
