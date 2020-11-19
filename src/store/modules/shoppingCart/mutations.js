@@ -1,9 +1,9 @@
 export default {
-  addItem(state, id) {
-    state.StoreCart.push(id);
+  addItem(state, product) {
+    state.StoreCart.push(product);
   },
 
-  removeItem(state, index) {
-    state.StoreCart.splice(index, 1);
+  removeItem(state, id) {
+    state.StoreCart = state.StoreCart.filter( el => el.id !== id );;
 },
 };

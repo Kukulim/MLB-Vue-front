@@ -15,6 +15,7 @@
           <td>{{ product.price }}</td>
           <td>{{ product.category }}</td>
           <td>{{ product.author }}</td>
+          <button class="btn btn-warning" @click="removeItem(product.id)"><i class="fa fa-trash"></i></button>
         </tr>
       </tbody>
     </table>
@@ -30,6 +31,12 @@ export default {
   computed: {
     ...mapState("cart", { StoreCart: "StoreCart" }),
   },
+    methods: {
+    ...mapActions("cart", ["removeItemAction"]),
+    async removeItem(id){
+        await this.removeItemAction(id);
+    }
+    }
 };
 </script>
 
