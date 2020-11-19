@@ -1,6 +1,6 @@
 <template>
   <div class="nav-link">
-    <span class="btn btn-primary btn-sm cart"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i> <CartCounter /></span>
+    <router-link class="btn btn-primary btn-sm cart" to="/cartdetails"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i> <CartCounter /></router-link>
   </div>
 </template>
 

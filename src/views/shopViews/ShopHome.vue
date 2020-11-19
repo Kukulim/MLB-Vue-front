@@ -5,10 +5,7 @@
     <Product     
       v-for="product  in  products"
       :key="product.id"
-      :id="product.id"
-      :name="product.name"
-      :image="product.image"
-      :price="product.price"
+      :item="product"
     /></div>
     </div>
 </template>

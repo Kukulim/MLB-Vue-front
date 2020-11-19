@@ -1,6 +1,6 @@
 
-export const addItemAction = async ({ commit }, id) => {
-  await commit("addItem", id);
+export const addItemAction = async ({ commit }, product) => {
+  await commit("addItem", product);
 };
 
 export const removeItemAction = async ({ commit }, index) => {

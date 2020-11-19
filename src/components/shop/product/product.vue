@@ -16,9 +16,9 @@
     <!--Card content-->
     <div class="card-body">
       <!--Title-->
-      <h4 class="card-title">{{ name }}</h4>
+      <h4 class="card-title">{{ item.name }}</h4>
       <!--Text-->
-      <p class="card-text">{{ price }}</p>
+      <p class="card-text">{{ item.price }}</p>
       <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
       <button
         type="button"
@@ -36,11 +36,12 @@ import { mapActions } from "vuex";
 
 export default {
   name: "product",
-  props: ["id", "name", "image", "price"],
+  props: ["item"],
   methods: {
     ...mapActions("cart", ["addItemAction"]),
-    addToCart(id) {
-      this.addItemAction(id);
+    addToCart(item) {
+      this.addItemAction(this.item);
+      console.log(this.item)
     },
   },
 };
