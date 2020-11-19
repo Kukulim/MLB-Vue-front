@@ -31,7 +31,7 @@
 <script>
 import HeaderBarBrand from "@/components/header/header-bar-brand";
 import HeaderNav from "@/components/header/header-nav";
-import Cart from "@/components/cart/shoppingCart";
+import Cart from "@/components/shop/cart/shoppingCart";
 
 export default {
   name: "HeaderBar",

@@ -1,15 +1,22 @@
 <template>
-    <div class="nav-link">
-        <h3>CART</h3>
-    </div>
+  <div class="nav-link">
+    <span class="btn btn-primary btn-sm cart"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i> <CartCounter /></span>
+  </div>
 </template>
 
 <script>
-    export default {
-        name:"shoppingCart"
-    }
+import CartCounter from "@/components/shop/cart/CartCounter";
+
+export default {
+  name: "shoppingCart",
+  components: {
+    CartCounter,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-
+.cart{
+    color: white;
+}
 </style>

@@ -24,7 +24,7 @@ export default {
     };
   },
   components: {
-    Product
+    Product,
   },
     async created() {
     {
