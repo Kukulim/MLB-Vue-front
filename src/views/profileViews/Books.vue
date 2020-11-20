@@ -26,7 +26,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="book in books" :key="book.id">
+        <tr v-for="book in currentUserBooks" :key="book.id">
           <th>{{ book.name }}</th>
           <td>{{ book.price }}</td>
           <td>{{ book.category }}</td>
@@ -48,7 +48,7 @@ export default {
     };
   },
   computed: {
-    ...mapState("books", { books: "books" }),
+    ...mapState("books", { currentUserBooks: "currentUserBooks" }),
     ...mapState("auth", { accessToken: "accessToken" }),
     ...mapState("auth", { user: "user" })
   },
@@ -61,9 +61,9 @@ export default {
     }
   },
   methods: {
-    ...mapActions("books", ["getBooksAction"]),
+    ...mapActions("books", ["getCurrentUserBooksAction"]),
     async loadBooks() {
-      await this.getBooksAction(this.accessToken);
+      await this.getCurrentUserBooksAction(this.accessToken);
     }
   }
 };

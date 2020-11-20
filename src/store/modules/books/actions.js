@@ -1,6 +1,6 @@
 import { booksdata } from "@/shared";
 
-export const getBooksAction = async ({ commit }, token) => {
+export const getCurrentUserBooksAction = async ({ commit }, token) => {
   const books = await booksdata.getBooksList(token);
-  commit("setBooks", books);
+  commit("setCurrentUserBooks", books);
 };

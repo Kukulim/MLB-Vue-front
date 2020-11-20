@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col">
+    <div class="col" v-if="!sended">
       <h3>Confirm your email address</h3>
       <p>
         We have sent an email with a confirmation link to your email address. In
@@ -20,6 +20,16 @@
       </p>
       <button class="btn btn-primary" @click="sendEmail()">Click me !</button>
     </div>
+    <div class="col" v-if="sended">
+      <p class="alert alert-warning alert-dismissible fade show" role="alert">
+        An email has been sent. Please check your email inbox.
+      </p>
+
+      <p class="alert alert-warning alert-dismissible fade show" role="alert">
+        <b>Warning</b>: You willl be redirected back to the Login Page <br />
+        in <b>{{ countDown }} Seconds</b>"
+      </p>
+    </div>
     <div class="col">
       <img src="@/assets/confirmEmail.jpg" class="fluid-img accountImg" />
     </div>
@@ -27,28 +37,52 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 import { data } from "@/shared";
 export default {
   data() {
     return {
-      loading: true
+      loading: true,
+      sended: false,
+      countDown: 10,
     };
   },
   computed: {
     ...mapState("auth", { user: "user" }),
-    ...mapState("auth", { accessToken: "accessToken" })
+    ...mapState("auth", { accessToken: "accessToken" }),
+    ...mapMutations("auth", ["removeTokens"]),
   },
   methods: {
     async sendEmail() {
       const Currentuser = {
         username: this.user.userName,
-        useremail: this.user.email
+        useremail: this.user.email,
       };
-      await data.sendConfirmEmail(Currentuser, this.accessToken);
-    }
-  }
+      try {
+        await data.sendConfirmEmail(Currentuser, this.accessToken);
+      } catch (err) {
+        console.log(err);
+      }
+      this.sended = true;
+      this.countDownTimer();
+      this.removeTokens();
+    },
+
+    countDownTimer() {
+      if (this.countDown > 0) {
+        setTimeout(() => {
+          this.countDown -= 1;
+          this.countDownTimer();
+        }, 1000);
+                setTimeout(() => {
+          this.$router.push({ name: "Login" });
+        }, 10000);
+      }
+
+    },
+  },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>
