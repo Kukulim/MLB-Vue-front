@@ -9,12 +9,19 @@
       </router-link>
     </ul>
     <ul v-if="isLoggedIn" class="navbar-nav">
-      <router-link to="/books" class="nav-link ">
-        Books
+            <router-link to="/shophome" class="nav-link ">
+        Store
+      </router-link>
+      <router-link to="/myauctions" class="nav-link ">
+        My Auctions
+      </router-link>
+      <router-link to="/profile" class="nav-link ">
+        Profile
       </router-link>
       <router-link to="/" class="nav-link" @click="logout()">
         Logout
       </router-link>
+
     </ul>
   </nav>
 </template>

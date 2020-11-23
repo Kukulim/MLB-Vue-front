@@ -27,7 +27,7 @@
 
       <p class="alert alert-warning alert-dismissible fade show" role="alert">
         <b>Warning</b>: You willl be redirected back to the Login Page <br />
-        in <b>{{ countDown }} Seconds</b>"
+        in <b>{{ countDown }} Seconds</b>
       </p>
     </div>
     <div class="col">
@@ -74,11 +74,10 @@ export default {
           this.countDown -= 1;
           this.countDownTimer();
         }, 1000);
-                setTimeout(() => {
+        setTimeout(() => {
           this.$router.push({ name: "Login" });
         }, 10000);
       }
-
     },
   },
 };

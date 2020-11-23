@@ -8,9 +8,9 @@ import InfrastructureRoutes from "@/router/infrastructureRoutes";
 let allRoutes = [];
 allRoutes = allRoutes.concat(
   ShopRoutes,
-  AccountRoutes,
   ProfileRoutes,
-  InfrastructureRoutes
+  InfrastructureRoutes,
+  AccountRoutes
 );
 
 const routes = allRoutes;

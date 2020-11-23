@@ -72,7 +72,7 @@ export default {
       const response = await this.loginAction(this.currentUser);
       if (response == "error") {
         this.showerrormesage = true;
-      } else this.$router.push({ name: "Books" });
+      } else this.$router.push({ name: "ShopHome" });
     },
   },
 };
