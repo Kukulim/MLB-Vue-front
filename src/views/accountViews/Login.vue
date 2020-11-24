@@ -4,13 +4,13 @@
     <div class="col">
       <form @submit="Login($event)">
         <div class="form-group input-wrapper">
-          <label for="exampleInputEmail1">User Name</label>
-          <i class="fa fa-user input-icon"></i>
+          <label for="exampleInputEmail1">Email</label>
+          <i class="fa fa-envelope input-icon"></i>
           <input
-            type="text"
+            type="email"
             class="form-control"
-            placeholder="name..."
-            v-model="currentUser.username"
+            placeholder="email@email..."
+            v-model="currentUser.email"
           />
         </div>
         <div class="form-group input-wrapper">
@@ -58,7 +58,7 @@ export default {
   data() {
     return {
       currentUser: {
-        username: "",
+        email: "",
         password: "",
       },
       showerrormesage: false,
