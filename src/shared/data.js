@@ -21,7 +21,7 @@ const register = async function(currentUser) {
     });
   } catch (error) {
     console.error(error);
-    return null;
+    return "error";
   }
 };
 

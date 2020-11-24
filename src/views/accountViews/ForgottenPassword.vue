@@ -1,5 +1,5 @@
 <template>
-  <h1 class="mt-4 mb-4">Fortoggen password:</h1>
+  <h1 class="mt-4 mb-4">Forgotten password:</h1>
   <div class="row container">
     <div class="col">
       <form @submit="SendPasswordResetEmail($event)">

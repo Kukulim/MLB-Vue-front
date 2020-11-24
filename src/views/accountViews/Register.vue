@@ -4,7 +4,7 @@
   </h1>
   <div class="row">
     <div class="col">
-      <form>
+      <form @submit="createUser($event)">
         <div class="form-group input-wrapper">
           <label for="exampleInputEmail1">User Name</label>
           <i class="fa fa-user input-icon"></i>
@@ -41,7 +41,25 @@
           />
         </div>
 
-        <button type="submit" class="btn btn-primary" @click="createUser()">
+                      <div
+          v-if="showerrormesage"
+          class="alert alert-warning alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>Username or password already exists.</strong>
+                  <div>
+          <router-link to="/forgottenpassword"> Forgotten Password </router-link>
+        </div>
+          <button
+            type="button"
+            class="close"
+            @click="this.showerrormesage = false"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
           Register
         </button>
       </form>
@@ -63,13 +81,18 @@ export default {
         password: "",
         email: "",
         isEmailConfirmed: false
-      }
+      },
+      showerrormesage: false
     };
   },
   methods: {
-    async createUser() {
-      await data.register(this.currentUser);
-      this.$router.push({ name: "Login" });
+    async createUser(event) {
+      event.preventDefault();
+        const response = await data.register(this.currentUser);
+        if(response=="error"){
+          this.showerrormesage=true;
+        }
+        else this.$router.push({ name: "Login" });
     }
   }
 };
