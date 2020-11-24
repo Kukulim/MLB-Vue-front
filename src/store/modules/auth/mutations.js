@@ -2,6 +2,9 @@ export default {
   setCurrentUser(state, user) {
     state.user = user;
   },
+  setCurrentUserShippingAddress(state, shippingAdd) {
+    state.shippingAddress = shippingAdd;
+  },
   setCurrentAccessToken(state, accessToken) {
     state.accessToken = accessToken;
   },

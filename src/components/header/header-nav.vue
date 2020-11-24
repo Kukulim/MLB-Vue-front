@@ -18,7 +18,7 @@
       <router-link to="/profile" class="nav-link ">
         Profile
       </router-link>
-      <router-link to="/" class="nav-link" @click="logout()">
+      <router-link to="/" class="nav-link ml-4" @click="logout()">
         Logout
       </router-link>
 

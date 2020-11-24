@@ -5,6 +5,9 @@ export default {
   getCurrentUser(state) {
     return state.user;
   },
+  getCurrentUserShippingAddress(state) {
+    return state.shippingAdress;
+  },
   getCurrentaccessToken(state) {
     return state.accessToken;
   },
