@@ -1,6 +1,17 @@
 <template>
   <div>
-    <form>
+    <div
+      v-if="showmessage"
+      class="alert alert-warning alert-dismissible fade show"
+      role="alert"
+    >
+      <strong>Save success.</strong>
+      <button type="button" class="close" @click="this.showmessage = false">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <form @submit="SaveChanges($event)">
       <div class="form-group">
         <label>Firstname (or company name)</label>
         <input
@@ -89,8 +100,28 @@
 <script>
 import { mapState, mapActions } from "vuex";
 export default {
+  data() {
+    return {
+      showmessage: false,
+    };
+  },
   computed: {
     ...mapState("auth", { shippingAddress: "shippingAddress" }),
+    ...mapState("auth", { CurrentUser: "user" }),
+  },
+  methods: {
+    ...mapActions("auth", ["saveShippingAddressAction"]),
+
+    async SaveChanges(event) {
+      event.preventDefault();
+      const UserToSave = {
+        email: this.CurrentUser.email,
+        accessToken: this.CurrentUser.accessToken,
+        shippingAddress: this.shippingAddress,
+      };
+      await this.saveShippingAddressAction(UserToSave);
+      this.showmessage = true;
+    },
   },
 };
 </script>

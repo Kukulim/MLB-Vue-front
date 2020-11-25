@@ -30,3 +30,12 @@ export const refreshToken = async ({ commit, dispatch, state }) => {
     dispatch("refreshAction");
   }, state.remainingTokenTime);
 };
+
+export const saveShippingAddressAction = async ({ commit }, currentUser) => {
+  await commit("setCurrentUserShippingAddress", currentUser.shippingAddress);
+  try {
+    await data.saveShippingAddress(currentUser, currentUser.accessToken);
+  } catch (error) {
+    console.log(error);
+  }
+};

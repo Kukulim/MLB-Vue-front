@@ -12,6 +12,21 @@ const getBooksList = async function(accessToken) {
   }
 };
 
+const getAllBooks = async function() {
+  try {
+    const response = await axios.get(`${API_LOCATION}/books/`, {
+      headers: {
+        "Content-Type": "application/json",
+      }, 
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
 export const booksdata = {
-  getBooksList
+  getBooksList,
+  getAllBooks,
 };

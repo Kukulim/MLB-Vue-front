@@ -12,7 +12,7 @@
 
 <script>
 import Product from "@/components/shop/product/product";
-import { data } from "@/shared";
+import { booksdata } from "@/shared";
 
 export default {
     data() {
@@ -25,7 +25,7 @@ export default {
   },
     async created() {
     {
-      this.products = await data.getAllBooks();
+      this.products = await booksdata.getAllBooks();
     }
   },
 };

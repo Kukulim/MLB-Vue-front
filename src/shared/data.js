@@ -75,17 +75,17 @@ const sendPasswordResetEmail = async function(UserEmail) {
   }
 };
 
-const getAllBooks = async function() {
+
+const saveShippingAddress = async function(currentUser ,currentAccesToken) {
   try {
-    const response = await axios.get(`${API_LOCATION}/books/`, {
+    const response = await axios.post(`${API_LOCATION}/account/editshippingaddress`,currentUser, {
       headers: {
         "Content-Type": "application/json",
-      }, 
+        Authorization: `Bearer ${currentAccesToken}`
+      },      
     });
-    return response.data;
   } catch (error) {
     console.error(error);
-    return null;
   }
 };
 
@@ -95,5 +95,5 @@ export const data = {
   refreshToken,
   sendConfirmEmail,
   sendPasswordResetEmail,
-  getAllBooks
+  saveShippingAddress
 };
