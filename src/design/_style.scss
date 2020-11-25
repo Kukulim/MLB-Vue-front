@@ -4,7 +4,11 @@
 
 #app{
     background-color: rgb(247, 225, 185);
-    min-height: 900px;
+    min-height: 100vh; 
+    margin: 0; 
+    
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 .welcomeImage{
@@ -14,9 +18,10 @@
     position:absolute;
     margin-top:15px;
  }
- .footer {
-margin-top: 10px;
-  }
+ .footer{ 
+  min-height:50px; 
+  margin-top: 30px;
+}
 input{
     text-indent:40px;
 }
