@@ -41,8 +41,25 @@ const createAuction = async function(book, currentAccesToken) {
   }
 };
 
+const updateImage = async function(image,currentAccesToken) {
+  try {
+    const response = await axios.post(`${API_LOCATION}/books/UploadImage`, image, {
+      headers: {
+        'Content-Type' : 'image/png',
+        Authorization: `Bearer ${currentAccesToken}`
+      }, 
+    });
+    return response.data;
+
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
 export const booksdata = {
   getBooksList,
   getAllBooks,
   createAuction,
+  updateImage,
 };

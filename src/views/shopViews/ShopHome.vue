@@ -26,6 +26,7 @@ export default {
     async created() {
     {
       this.products = await booksdata.getAllBooks();
+          console.log(this.products);
     }
   },
 };

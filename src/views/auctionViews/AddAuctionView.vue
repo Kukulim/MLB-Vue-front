@@ -60,6 +60,17 @@
           placeholder="image url..."
         />
       </div>
+      <div class="form-group">
+        <label>Image</label>
+        <input
+          type="file"
+          accept="image/*"
+          class="form-control"
+          placeholder="image url..."
+          @change="uploadImage($event)"
+          id="file-input"
+        />
+      </div>
 
       <button type="submit" class="btn btn-primary">Create Auction</button>
     </form>
@@ -77,21 +88,31 @@ export default {
         price:0,
         category:"",
         author:"",
-        imageUrl:""
+        imageUrl:"",
+        UserId:""
       },
+      uploadedImageUrl: "",
       showmessage: false,
     };
   },
     computed: {
-    ...mapState("auth", { accessToken: "accessToken" }),
+    ...mapState("auth", { currentUser: "user" }),
   },
   methods: {
-
     async CreateAuction(event) {
       event.preventDefault();
-      await booksdata.createAuction(this.Book,this.accessToken)
+      this.Book.imageUrl=this.uploadedImageUrl;
+      this.Book.UserId = this.currentUser.userId;
+      await booksdata.createAuction(this.Book,this.currentUser.accessToken)
       this.$router.push({name:"MyAuctions"})
     },
+    async uploadImage(event) {
+          const data = new FormData();
+            data.append('name', 'my-picture');
+            data.append('file', event.target.files[0]);
+      const response = await booksdata.updateImage(data,this.currentUser.accessToken);
+      this.uploadedImageUrl = response.dbPath;
+    }
   },
 };
 </script>

@@ -5,7 +5,7 @@
     <div class="view overlay">
       <img
         class="card-img-top"
-        src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+        v-bind:src="API + item.imageUrl"
         alt="Card image cap"
       />
       <a href="#!">
@@ -33,9 +33,15 @@
 
 <script>
 import { mapActions } from "vuex";
+import { API_IMG } from "../../../../config"
 
 export default {
   name: "product",
+    data() {
+    return {
+      API:"",
+    };
+  },
   props: ["item"],
   methods: {
     ...mapActions("cart", ["addItemAction"]),
@@ -44,6 +50,9 @@ export default {
       console.log(this.item)
     },
   },
+  created(){
+    this.API = API_IMG;
+  }
 };
 </script>
 
