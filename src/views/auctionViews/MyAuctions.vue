@@ -14,7 +14,7 @@
       </button>
     </div>
 
-    <button class="btn btn-primary m-3">Add new book</button>
+    <router-link class="btn btn-primary m-3" to="/addauction"> Create auction </router-link>
 
     <table class="table">
       <thead>

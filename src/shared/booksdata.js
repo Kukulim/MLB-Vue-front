@@ -26,7 +26,23 @@ const getAllBooks = async function() {
   }
 };
 
+const createAuction = async function(book, currentAccesToken) {
+  try {
+    const response = await axios.post(`${API_LOCATION}/books/CreateAuction`, book, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${currentAccesToken}`
+      }, 
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
 export const booksdata = {
   getBooksList,
   getAllBooks,
+  createAuction,
 };
