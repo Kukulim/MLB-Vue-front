@@ -32,7 +32,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx", "src/store/auth/index.js", "src/router/profileRoutes.js", "src/router/infrastructureRoutes.js", "src/router/accountRoutes.js", "src/router/shopRoutes.js", "src/router/index.js"
+    "tests/**/*.tsx", "src/store/auth/index.js", "src/router/auctionRoutes.js", "src/router/infrastructureRoutes.js", "src/router/accountRoutes.js", "src/router/shopRoutes.js", "src/router/index.js"
   ],
   "exclude": [
     "node_modules"
