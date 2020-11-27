@@ -4,8 +4,15 @@
     <!--Card image-->
     <div class="view overlay">
       <img
+        v-if="item.imageUrl != null"
         class="card-img-top"
         v-bind:src="item.imageUrl"
+        alt="Card image cap"
+      />
+      <img
+        v-if="item.imageUrl == null"
+        class="card-img-top"
+        src="@/assets/mockBook.jpg"
         alt="Card image cap"
       />
       <a href="#!">

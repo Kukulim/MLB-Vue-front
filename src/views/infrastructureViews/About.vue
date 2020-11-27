@@ -21,6 +21,11 @@
         >Tło plik wektorowy utworzone przez freepik - pl.freepik.com</a
       >
     </p>
+    <p>
+      <a href="https://pl.freepik.com/wektory/biznes"
+        >Biznes plik wektorowy utworzone przez freepik - pl.freepik.com</a
+      >
+    </p>
   </div>
 </template>
 
