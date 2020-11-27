@@ -80,6 +80,8 @@
 <script>
 import { booksdata } from "@/shared/index";
 import { mapState } from "vuex";
+import { API_IMG } from "@/../config"
+
 export default {
   data() {
     return {
@@ -92,7 +94,7 @@ export default {
         UserId:""
       },
       uploadedImageUrl: "",
-      showmessage: false,
+      showmessage: false
     };
   },
     computed: {
@@ -101,7 +103,7 @@ export default {
   methods: {
     async CreateAuction(event) {
       event.preventDefault();
-      this.Book.imageUrl=this.uploadedImageUrl;
+      if(this.Book.imageUrl==="") this.Book.imageUrl=API_IMG+this.uploadedImageUrl;
       this.Book.UserId = this.currentUser.userId;
       await booksdata.createAuction(this.Book,this.currentUser.accessToken)
       this.$router.push({name:"MyAuctions"})
@@ -113,7 +115,7 @@ export default {
       const response = await booksdata.updateImage(data,this.currentUser.accessToken);
       this.uploadedImageUrl = response.dbPath;
     }
-  },
+  }
 };
 </script>
 
