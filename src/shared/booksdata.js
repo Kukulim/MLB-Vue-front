@@ -57,9 +57,24 @@ const updateImage = async function(image,currentAccesToken) {
   }
 };
 
+const getAuction = async function(id) {
+  try {
+    const response = await axios.get(`${API_LOCATION}/books/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      }, 
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
 export const booksdata = {
   getBooksList,
   getAllBooks,
   createAuction,
   updateImage,
+  getAuction,
 };

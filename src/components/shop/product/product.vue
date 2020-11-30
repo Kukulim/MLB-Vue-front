@@ -2,7 +2,7 @@
   <!-- Card Light -->
   <div class="card mb-4" style="width: 18rem;">
     <!--Card image-->
-    <router-link :to="{ name: 'AuctionDetails', params: { bookId: item.id }}">
+    <router-link :to="{ name: 'AuctionDetails', params: { id: item.id }}">
 
       <img
         v-if="item.imageUrl != null"

@@ -22,7 +22,7 @@ const routes = [
     )
 },
   {
-  path: "/auctiondetails/:bookId",
+  path: "/auctiondetails/:id",
   name: "AuctionDetails",
   // route level code-splitting
   // this generates a separate chunk (about.[hash].js) for this route
@@ -31,7 +31,7 @@ const routes = [
     import(
       /* webpackChunkName: "about" */ "../views/shopViews/AuctionDetails.vue"
     ),
-    props: (r) => ({ bookId: r.params.id}),
+    props: (r) => ({ id: r.params.id}),
 },
 ];
 
