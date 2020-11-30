@@ -71,10 +71,25 @@ const getAuction = async function(id) {
   }
 };
 
+const searchForBook = async function(name) {
+  try {
+    const response = await axios.get(`${API_LOCATION}/books/search/${name}`, {
+      headers: {
+        "Content-Type": "application/json",
+      }, 
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
 export const booksdata = {
   getBooksList,
   getAllBooks,
   createAuction,
   updateImage,
   getAuction,
+  searchForBook,
 };

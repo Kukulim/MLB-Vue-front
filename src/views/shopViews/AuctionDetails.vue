@@ -14,8 +14,9 @@ export default {
     };
   },
    async mounted() {
-    this.book = await booksdata.getAuction(this.id)
-    console.log(this.book);
+    this.book = await booksdata.getAuction(this.id);
+    const response = await booksdata.searchForBook(this.book.name)
+    console.log(response.GoodreadsResponse.search.results.work);
   },
 };
 </script>
