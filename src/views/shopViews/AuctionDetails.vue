@@ -1,5 +1,6 @@
 <template>
-  <div>details</div>
+  <div>auction details</div>
+  <router-link :to="{ name: 'BookDetails', params: { book: found }}">Book details</router-link>
 </template>
 
 <script>
@@ -16,7 +17,9 @@ export default {
    async mounted() {
     this.book = await booksdata.getAuction(this.id);
     const response = await booksdata.searchForBook(this.book.name)
-    console.log(response.GoodreadsResponse.search.results.work);
+    const author = this.book.author.split(' ');
+    const found = response.GoodreadsResponse.search.results.work.find(element => element.best_book.author.name.includes(author[1])||element.best_book.author.name.includes(this.book.author));
+    console.log(found);
   },
 };
 </script>
