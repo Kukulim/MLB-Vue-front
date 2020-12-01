@@ -1,11 +1,11 @@
 <template>
   <div>auction details</div>
-  <router-link :to="{ name: 'BookDetails', params: { book: found }}">Book details</router-link>
+  <button @click="BookDetails()">Book details</button>
 </template>
 
 <script>
 import { booksdata } from "@/shared";
-import { onMounted } from 'vue';
+import { onMounted } from "vue";
 
 export default {
   props: ["id"],
@@ -14,12 +14,16 @@ export default {
       book: {},
     };
   },
-   async mounted() {
+  async mounted() {
     this.book = await booksdata.getAuction(this.id);
-    const response = await booksdata.searchForBook(this.book.name)
-    const author = this.book.author.split(' ');
-    const found = response.GoodreadsResponse.search.results.work.find(element => element.best_book.author.name.includes(author[1])||element.best_book.author.name.includes(this.book.author));
-    console.log(found);
+  },
+  methods: {
+    BookDetails() {
+      this.$router.push({
+        name: "BookDetails",
+        params: { bookname: this.book.name, bookauthor: this.book.author },
+      });
+    },
   },
 };
 </script>
