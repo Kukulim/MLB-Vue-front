@@ -85,6 +85,21 @@ const searchForBook = async function(name) {
   }
 };
 
+
+const searchForBookDetails = async function(name, author) {
+  try {
+    const response = await axios.get(`${API_LOCATION}/books/detailssearch/${name}&${author}`, {
+      headers: {
+        "Content-Type": "application/json",
+      }, 
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
 export const booksdata = {
   getBooksList,
   getAllBooks,
@@ -92,4 +107,5 @@ export const booksdata = {
   updateImage,
   getAuction,
   searchForBook,
+  searchForBookDetails,
 };
